@@ -7,10 +7,10 @@
 </head>
 
 <header>
-    <a class="link" href="../../public/company/company.html">О компании</a>
-    <a class="link" href="../../public/pay/pay.html">Оплата</a>
-    <a class="link" href="../../public/action/action.html">Акции и подарки</a>
-    <a class="link" href="../../public/delivery/delivery.html">Доставка по РФ</a>
+    <a class="link" href="../company/company.html">О компании</a>
+    <a class="link" href="../../pay/pay.html">Оплата</a>
+    <a class="link" href="../../action/action.html">Акции и подарки</a>
+    <a class="link" href="../../delivery/delivery.html">Доставка по РФ</a>
 </header>
 
 <body>
