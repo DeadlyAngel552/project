@@ -26,14 +26,24 @@ if ( isset($_POST['login-go'])) {
     $rez = $mysqli->query("SELECT * FROM `users` WHERE login = '$login' AND password = '$password'");
     $row = $rez->fetch_assoc();
 
+    $_SESSION['id'] = $row['id'];
     $_SESSION['name'] = $row['name'];
   }
 
   else {
-    printf("Ты че дурак блять?");
+    printf("Не правильно");
   }
 }
 
 if (isset($_POST['login-out'])) {
   session_unset();
+}
+
+
+if (isset($_GET['basket_del'])) {
+    $book_del = mysqli_real_escape_string($mysqli , $_GET['id']);
+
+
+    if($mysqli->query("DELETE FROM `basket` WHERE id = '$book_del'") == TRUE) {
+    }
 }

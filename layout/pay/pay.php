@@ -1,3 +1,6 @@
+<?php
+include_once '..\..\php\mysqli.php';
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -7,38 +10,24 @@
 </head>
 
 <header>
-    <a class="link" href="../../public/company/company.html">О компании</a>
-    <a class="link" href="../../public/pay/pay.html">Оплата</a>
-    <a class="link" href="../../public/action/action.html">Акции и подарки</a>
-    <a class="link" href="../../public/delivery/delivery.html">Доставка по РФ</a>
+    <a class="link" href="../../layout/company/company.php">О компании</a>
+    <a class="link" href="../../layout/pay/pay.php">Оплата</a>
+    <a class="link" href="../../layout/action/action.php">Акции и подарки</a>
+    <a class="link" href="../../layout/delivery/delivery.php">Доставка по РФ</a>
 </header>
-
+<?php
+include('..\..\layout\header.php');
+?>
 <body>
-<div class="head">
-    <div class="logo">
-
-    </div>
-    <div class="section">
-        <p class="phone">+7 (347) 666-69-69</p>
-    </div>
-    <div class="section2">
-        <img class="kabinet_kartinka" src="images/kabinet.png">
-        <a class="email" href="../../public/entry/entry.html">Личный кабинет</a>
-    </div>
-    <div class="section2">
-        <img class="basket_image" src="images/basket.png">
-        <a class="basket" href="../../public/basket/basket.html">Корзина</a>
-    </div>
-</div>
 <div class="info">
     <div class="filter">
-        <a class="selection" href="../../public/index.html">Главная</a>
-        <a class="selection" href="../../public/genre/detective/detective.html">Детективы</a>
-        <a class="selection" href="../../public/genre/fantasy/fantasy.html">Фантастика</a>
-        <a class="selection" href="../../public/genre/classic/classic.html">Классика</a>
-        <a class="selection" href="../../public/genre/novel/novel.html">Романы</a>
-        <a class="selection" href="../../public/genre/adventures/adventures.html">Приключения</a>
-        <a class="selection" href="../../public/genre/horrors/horrors.html">Ужасы</a>
+        <a class="selection" href="../../index.php">Главная</a>
+        <a class="selection" href="">Детективы</a>
+        <a class="selection" href="">Фантастика</a>
+        <a class="selection" href="">Классика</a>
+        <a class="selection" href="">Романы</a>
+        <a class="selection" href="">Приключения</a>
+        <a class="selection" href=".">Ужасы</a>
     </div>
     <div class="slider">
         <img src="images/b1.jpg">
@@ -62,7 +51,7 @@
     <p class="information_text">При получении посылки в почтовом отделении Почты России оплата заказа производится наложенным платежом.</p>
     <p class="information_text">Итоговая сумма заказа складывается из стоимости товаров в Вашей корзине, а также стоимости доставки
         «Почтой России», курьером или через пункт самовывоза. Более подробно читайте на странице
-        <a class="link" href="../../public/delivery/delivery.html">Доставка по РФ</a>.</p>
+        <a class="link" href="../delivery/delivery.php">Доставка по РФ</a>.</p>
 </div>
 
 
@@ -71,11 +60,11 @@
 <a href="#" title="Вернуться к началу" class="top-button">UP</a>
 <div class="basement">
     <div class="column">
-        <a class="link2" href="../../public/company/company.html">О компании</a>
-        <a class="link2" href="../../public/pay/pay.html">Оплата</a>
-        <a class="link2" href="../../public/action/action.html">Акции и подарки</a>
-        <a class="link2" href="../../public/delivery/delivery.html">Доставка по РФ</a>
-        <a class="link2" href="../../public/registration/registration.html">Регистрация на сайте</a>
+        <a class="link2" href="../../layout/company/company.php">О компании</a>
+        <a class="link2" href="../../layout/pay/pay.php">Оплата</a>
+        <a class="link2" href="../../layout/action/action.php">Акции и подарки</a>
+        <a class="link2" href="../../layout/delivery/delivery.php">Доставка по РФ</a>
+        <a class="link2" href="../../registration/registration.html">Регистрация на сайте</a>
         <p class="correction">2020 © Интернет-магазин "Dickens"</p>
     </div>
     <div class="column">

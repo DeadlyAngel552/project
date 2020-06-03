@@ -239,6 +239,17 @@ header{
     font-size: 120%;
     color: wheat;
 }
+/*Текст*/
+.information{
+    width: 100%;
+    min-height: 100px;
+}
+.information_text{
+    margin-left: 2%;
+    margin-top: 1%;
+    font-size: 120%;
+    color: wheat;
+}
 /*Кнопка наверх*/
 a.top-button{
     z-index: 1;

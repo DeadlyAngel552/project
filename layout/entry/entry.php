@@ -15,13 +15,13 @@ include('..\..\layout\header.php');
 ?>
 <div class="info">
     <div class="filter">
-        <a class="selection" href="..\..\index.php">Главная</a>
-        <a class="selection" href="../genre/detective/detective.html">Детективы</a>
-        <a class="selection" href="../genre/fantasy/fantasy.html">Фантастика</a>
-        <a class="selection" href="../genre/classic/classic.html">Классика</a>
-        <a class="selection" href="../genre/novel/novel.html">Романы</a>
-        <a class="selection" href="../genre/adventures/adventures.html">Приключения</a>
-        <a class="selection" href="../genre/horrors/horrors.html">Ужасы</a>
+        <a class="selection" href="../../index.php">Главная</a>
+        <a class="selection" href="">Детективы</a>
+        <a class="selection" href="">Фантастика</a>
+        <a class="selection" href="">Классика</a>
+        <a class="selection" href="">Романы</a>
+        <a class="selection" href="">Приключения</a>
+        <a class="selection" href="">Ужасы</a>
     </div>
     <div class="slider">
         <img src="images/b1.jpg">
