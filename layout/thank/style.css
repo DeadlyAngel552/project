@@ -250,6 +250,29 @@ header{
     font-size: 120%;
     color: wheat;
 }
+/**/
+.thank_you{
+    width: 50%;
+    height: 400px;
+    background: wheat;
+    margin-top: 0.5%;
+    margin-left: 25%;
+    text-align: center;
+    justify-content: center;
+    padding-top: 10%;
+    opacity: 0.7;
+}
+.thank-text{
+    font-size: 200%;
+    color: black;
+}
+.button-thank{
+    width: 10%;
+    height: 30px;
+    font-size: 100%;
+    color: black;
+    margin-top: 3%;
+}
 /*Кнопка наверх*/
 a.top-button{
     z-index: 1;
@@ -346,7 +369,7 @@ a.top-button:active::before {
 }
 /*Подвал*/
 .basement {
-    margin-top: 10%;
+    margin-top: 3%;
     width: 100%;
     min-height: 50px;
     background: wheat;
