@@ -15,10 +15,23 @@ include_once '..\..\php\mysqli.php';
     <a class="link" href="../../layout/action/action.php">Акции и подарки</a>
     <a class="link" href="../../layout/delivery/delivery.php">Доставка по РФ</a>
 </header>
-<?php
-include('..\..\layout\header.php');
-?>
+
 <body>
+<div class="head">
+    <div class="logo"></div>
+    <div class="section">
+        <p class="phone">+7 (347) 666-69-69</p>
+    </div>
+    <div class="section2">
+        <img class="kabinet_kartinka" src="images/kabinet.png">
+
+        <a class="email" href="../../layout/entry/entry.php"><?php if(isset($_SESSION['name'])){ echo $_SESSION['name']; } else { ?>Личный кабинет<?php } ?></a>
+    </div>
+    <div class="section2">
+        <img class="basket_image" src="images/basket.png">
+        <a class="basket" href="../../new/basket/basket.php">Корзина</a>
+    </div>
+</div>
 <div class="info">
     <div class="filter">
         <a class="selection" href="../../index.php">Главная</a>
@@ -64,7 +77,7 @@ include('..\..\layout\header.php');
         <a class="link2" href="../../layout/pay/pay.php">Оплата</a>
         <a class="link2" href="../../layout/action/action.php">Акции и подарки</a>
         <a class="link2" href="../../layout/delivery/delivery.php">Доставка по РФ</a>
-        <a class="link2" href="../../registration/registration.html">Регистрация на сайте</a>
+        <a class="link2" href="../../registration/registration.php">Регистрация на сайте</a>
         <p class="correction">2020 © Интернет-магазин "Dickens"</p>
     </div>
     <div class="column">
