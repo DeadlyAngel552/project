@@ -24,7 +24,9 @@ include_once '..\php\mysqli.php';
     <div class="section2">
         <img class="kabinet_kartinka" src="images/kabinet.png">
 
-        <a class="email" href="../layout/entry/entry.php"><?php if(isset($_SESSION['name'])){ echo $_SESSION['name']; } else { ?>Личный кабинет<?php } ?></a>
+        <a class="email" href="../layout/entry/entry.php"><?php if (isset($_SESSION['name'])) {
+                echo $_SESSION['name'];
+            } else { ?>Личный кабинет<?php } ?></a>
     </div>
     <div class="section2">
         <img class="basket_image" src="images/basket.png">
@@ -50,21 +52,28 @@ include_once '..\php\mysqli.php';
         <form class="form-search" action="/search/" target="_blank">
             <input type="hidden" name="searchid" value="808327">
             <input type="search" name="text" required placeholder="Поиск">
-            <input type="image" src="http://3.bp.blogspot.com/-4w14hQHr5yQ/Tgm6u7KwUkI/AAAAAAAACAI/Hu2poBOPx3g/s1600/search.png"/>  <!-- вместо кнопки submit -->
+            <input type="image"
+                   src="http://3.bp.blogspot.com/-4w14hQHr5yQ/Tgm6u7KwUkI/AAAAAAAACAI/Hu2poBOPx3g/s1600/search.png"/>
+            <!-- вместо кнопки submit -->
         </form>
     </div>
 </div>
 <div class="polosa">
     <p class="asorti">Регистрация</p>
 </div>
-<div class="registration">
-    <input type="email" name="sf_EMAIL" class="pole-registration"
-    placeholder="Адрес электронной почты" aria-required="true" aria-invalid="true">
-    <input type="password" name="password" class="pole-registration"
-           placeholder="Пароль" aria-required="true" aria-invalid="true">
-    <input type="password" name="password" class="pole-registration"
-           placeholder="Повторите пароль" aria-required="true" aria-invalid="true">
-    <button class="registration-button"><a class="link-entry" href="">Зарегистрироваться</a></button>
+
+<div class="registration1">
+    <?php
+    if (!isset($_SESSION['name'])){ ?>
+    <form method="POST">
+        <input type="text" name="name"><br/>
+        <input type="text" name="address"><br/>
+        <input type="email" name="email"><br/>
+        <input type="text" name="login"><br/>
+        <input type="password" name="password"><br/>
+        <input type="submit" name="registration" value="Зарегистрироваться">
+    </form>
+    <?php } ?>
 </div>
 
 <a href="#" title="Вернуться к началу" class="top-button">UP</a>

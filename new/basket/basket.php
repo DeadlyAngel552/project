@@ -65,7 +65,6 @@ include_once '..\..\php\mysqli.php';
 $user_id =  mysqli_real_escape_string($mysqli , $_SESSION['id']);
 $res = $mysqli->query("SELECT  basket.id,`title`, `price`, `img`, author.name
 FROM book 
-
 INNER JOIN author ON book.author_id = author.id
 INNER JOIN basket ON book.id = basket.book_id
 WHERE basket.user_id = '$user_id'");
@@ -83,10 +82,25 @@ while ($row = $res->fetch_assoc()) {
     </div>
     <?php
 }
-
-
 ?>
 </div>
+<form method="POST">
+<?php
+    $res = $mysqli->query ("SELECT basket.id,`title`, `price`, `img`, author.name
+FROM book
+INNER JOIN author ON book.author_id = author.id
+INNER JOIN basket ON book.id = basket.book_id
+WHERE basket.user_id = '$user_id'");
+    $book="";
+    while ($row = $res->fetch_assoc()) {
+        $book = $row['id'].",";
+    }
+    ?>
+    <input type = "text" name="id" value="<?php echo $book; ?>" hidden />
+    <button class="button-to-order" name="order" type="submit">Заказать</button>
+</form>
+
+
 <a href="#" title="Вернуться к началу" class="top-button">UP</a>
 <div class="basement">
     <div class="column">
