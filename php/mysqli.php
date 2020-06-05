@@ -26,8 +26,19 @@ if (isset($_POST['login-go'])) {
         $rez = $mysqli->query("SELECT * FROM `users` WHERE login = '$login' AND password = '$password'");
         $row = $rez->fetch_assoc();
 
-        $_SESSION['id'] = $row['id'];
-        $_SESSION['name'] = $row['name'];
+        if ($row['login'] == "admin") {
+            $_SESSION['admin'] = $row['admin'];
+
+            $_SESSION['id'] = $row['id'];
+            $_SESSION['name'] = $row['name'];
+            require('../../admin-panel/applications.php');
+        }
+        else
+        {
+          $_SESSION['id'] = $row['id'];
+          $_SESSION['name'] = $row['name'];
+        }
+
     } else {
         printf("Не правильно");
     }
@@ -64,19 +75,29 @@ if (isset($_POST['registration'])) {
         $row = $res->fetch_assoc();
         $_SESSION["id"] = $row["id"];
     } else {
-        echo "Pisya";
+        echo "-";
     }
 }
 
 if (isset($_POST['order'])) {
-    $book = mysqli_real_escape_string($mysqli, $_POST['id']);
-    $user_id = mysqli_real_escape_string($mysqli, $_POST['user_id']);
-    $row = explode(',', $book);
-    $dates = date('Y-m-d');
-    for ($i = 0; $i <= count($row); $i++) {
-        if ($mysqli->query("INSERT INTO `offers`(`book_id`, `user_id`, `create_at`, `status`) VALUES ('$row[$i]', '$user_id', '$dates', 0)") ==TRUE)
-        {
+  $book = mysqli_real_escape_string($mysqli, $_POST['id']);
+  $user_id = mysqli_real_escape_string($mysqli, $_POST['user_id']);
+  $row = explode(',', $book);
 
-        }
+  // echo "<pre>";
+  // print_r($row);
+  // echo "</pre>";
+
+  foreach ($row as $key => $value) {
+    // code...
+    $b = mysqli_real_escape_string($mysqli, $value);
+    if ($mysqli->query("INSERT INTO `offers`(`book_id`, `user_id`) VALUES ('$b', '$user_id')") == TRUE)
+    {
+      printf("work");
     }
+    else {
+      echo mysql_error($mysqli);
+    }
+  }
+
 }

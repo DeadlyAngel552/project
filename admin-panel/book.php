@@ -1,5 +1,7 @@
 <?php
 include_once '..\php\mysqli.php';
+
+if ($_SESSION[""])
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -25,7 +27,7 @@ include_once '..\php\mysqli.php';
     </div>
 </div>
 
-<div class="container">
+<div class="container" style="height: auto">
     <table class="table table-inverse">
         <thead>
         <tr>
@@ -39,30 +41,29 @@ include_once '..\php\mysqli.php';
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Большие надежды</td>
-            <td>Чарльз Диккенс</td>
+        <?php
+        $res = $mysqli->query("SELECT  book.id,`title`, `price`, `img`, author.name
+          FROM book INNER JOIN author ON book.author_id = author.id");
+          while ($row = $res->fetch_assoc()) {
+            ?>
+          <tr>
+
+            <th scope="row"><?php echo $row["id"]; ?></th>
+            <td><?php echo $row["title"]; ?></td>
+            <td>Автор: <?php echo $row["name"]; ?></td>
             <td>Роман</td>
-            <td>300 руб.</td>
-            <td><button class="button-add" type="submit">Добавить...</button></td>
+            <td>Цена: <?php echo $row["price"]; ?>руб.</td>
+            <td>
+              <?php if ($row["price"]) { ?>
+              <span>ОК</span>
+              <?php } else { ?>
+              <button class="button-add" type="submit">Добавить...</button>
+              <?php } ?>
+            </td>
+
+
         </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><button class="button-add" type="submit">Добавить...</button></td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><button class="button-add" type="submit">Добавить...</button></td>
-        </tr>
+        <?php }  ?>
         </tbody>
     </table>
 </div>

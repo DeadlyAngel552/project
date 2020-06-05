@@ -49,7 +49,10 @@ include_once 'php\mysqli.php';
 
 
             $mysqli->query("INSERT INTO `basket`(`book_id`, `user_id`, `count`) VALUES ('$book', '$user_id', 0)");
+
+
             ?> <h3>Добавлено в корзину</h3> <?php
+          
         }
         ?>
     </div>
@@ -67,12 +70,14 @@ include_once 'php\mysqli.php';
         <div class="block">
             <img class="book-image" src="<?php echo $row["img"]; ?>">
             <h3 class="style"><?php echo $row["title"]; ?></h3>
-            <p class="style">Автор: <?php echo $row["author.name"]; ?></p>
+            <p class="style">Автор: <?php echo $row["name"]; ?></p>
             <p class="style">Цена: <?php echo $row["price"]; ?>руб.</p>
+            <?php   if ($_SESSION['id'] != "") { ?>
             <form method="GET">
                 <input type = "text" name="id" value="<?php echo $row['id']; ?>" hidden />
                 <button type="submit" name="book" class="add-book">Добавить в корзину</button>
             </form>
+          <?php }  ?>
         </div>
         <?php
     }

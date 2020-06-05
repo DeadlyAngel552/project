@@ -62,13 +62,16 @@ include_once '..\..\php\mysqli.php';
 
 <div class="blocks">
 <?php
+$book="";
+
 $user_id =  mysqli_real_escape_string($mysqli , $_SESSION['id']);
 $res = $mysqli->query("SELECT  basket.id,`title`, `price`, `img`, author.name
-FROM book 
+FROM book
 INNER JOIN author ON book.author_id = author.id
 INNER JOIN basket ON book.id = basket.book_id
 WHERE basket.user_id = '$user_id'");
 while ($row = $res->fetch_assoc()) {
+      $book .= $row['id'].",";
     ?>
     <div class="block">
         <img class="book-image" src="<?php echo $row["img"]; ?>">
@@ -85,17 +88,6 @@ while ($row = $res->fetch_assoc()) {
 ?>
 </div>
 <form method="POST">
-<?php
-    $res = $mysqli->query ("SELECT basket.id,`title`, `price`, `img`, author.name
-FROM book
-INNER JOIN author ON book.author_id = author.id
-INNER JOIN basket ON book.id = basket.book_id
-WHERE basket.user_id = '$user_id'");
-    $book="";
-    while ($row = $res->fetch_assoc()) {
-        $book = $row['id'].",";
-    }
-    ?>
     <input type = "text" name="id" value="<?php echo $book; ?>" hidden />
     <button class="button-to-order" name="order" type="submit">Заказать</button>
 </form>

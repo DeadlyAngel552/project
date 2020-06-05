@@ -63,7 +63,7 @@ include_once '..\..\php\mysqli.php';
     <h3>Вы уже авторизованны как <?php echo $_SESSION['name']; ?></h3>
     <button class="entry-button" name="login-out" type="submit">Выйти</button>
   </form>
-  <?php } else { }?>
+<?php } else { ?>
 
 <form class="entry" method="post">
     <input type="text" name="login" class="entry-field"
@@ -74,6 +74,7 @@ include_once '..\..\php\mysqli.php';
 
     <button class="entry-button" name="login-go" type="submit">Войти</button>
 </form>
+<?php } ?>
 <a href="#" title="Вернуться к началу" class="top-button">UP</a>
 <div class="basement">
     <div class="column">

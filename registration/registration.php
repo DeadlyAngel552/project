@@ -68,7 +68,7 @@ include_once '..\php\mysqli.php';
     <form method="POST">
         <input type="text" name="name"><br/>
         <input type="text" name="address"><br/>
-        <input type="email" name="email"><br/>
+        <input type="email" name="contacts"><br/>
         <input type="text" name="login"><br/>
         <input type="password" name="password"><br/>
         <input type="submit" name="registration" value="Зарегистрироваться">
