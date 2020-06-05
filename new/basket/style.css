@@ -354,6 +354,17 @@ a.book-image:hover:before {
     margin-top: 0.2%;
     margin-left: 0.8%;
 }
+/*Кнопка Заказать*/
+.button-to-order{
+    width: 10%;
+    height: 40px;
+    background: green;
+    color: white;
+    font-size: 100%;
+    position: fixed;
+    bottom: 25%;
+    left: 5%;
+}
 /*Кнопка наверх*/
 a.top-button{
     z-index: 1;

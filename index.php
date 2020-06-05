@@ -10,6 +10,7 @@ include_once 'php\mysqli.php';
 </head>
 <body>
   <header>
+      <a class="link" href="admin-panel/applications.php">Администратор</a>
       <a class="link" href="layout/company/company.php">О компании</a>
       <a class="link" href="layout/pay/pay.php">Оплата</a>
       <a class="link" href="layout/action/action.php">Акции и подарки</a>
