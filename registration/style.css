@@ -270,6 +270,18 @@ header{
     color: black;
     font-size: 120%;
 }
+.post{
+
+    align-items: center;
+    flex-wrap: wrap;
+    width: 80%;
+    padding: 1%;
+}
+.text1{
+    margin-top: 2%;
+    margin-left: 48%;
+
+}
 /*Кнопка наверх*/
 a.top-button{
     z-index: 1;

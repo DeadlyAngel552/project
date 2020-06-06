@@ -65,13 +65,13 @@ include_once '..\php\mysqli.php';
 <div class="registration1">
     <?php
     if (!isset($_SESSION['name'])){ ?>
-    <form method="POST">
-        <input type="text" name="name"><br/>
-        <input type="text" name="address"><br/>
-        <input type="email" name="contacts"><br/>
-        <input type="text" name="login"><br/>
-        <input type="password" name="password"><br/>
-        <input type="submit" name="registration" value="Зарегистрироваться">
+    <form class="post" method="POST">
+        <input class="text1" type="text" name="name" placeholder="Введите имя"><br/>
+        <input class="text1" type="text" name="address" placeholder="Домашний адрес"><br/>
+        <input class="text1" type="email" name="contacts" placeholder="Введите Email"><br/>
+        <input class="text1" type="text" name="login" placeholder="Логин"><br/>
+        <input class="text1" type="password" name="password" placeholder="Пароль"><br/>
+        <input class="text1" type="submit" name="registration" value="Зарегистрироваться">
     </form>
     <?php } ?>
 </div>

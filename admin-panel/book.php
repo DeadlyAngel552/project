@@ -55,13 +55,9 @@ if ($_SESSION[""])
             <td>Цена: <?php echo $row["price"]; ?>руб.</td>
             <td>
               <?php if ($row["price"]) { ?>
-              <span>ОК</span>
-              <?php } else { ?>
               <button class="button-add" type="submit">Добавить...</button>
               <?php } ?>
             </td>
-
-
         </tr>
         <?php }  ?>
         </tbody>

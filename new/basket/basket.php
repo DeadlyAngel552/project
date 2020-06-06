@@ -36,12 +36,12 @@ include_once '..\..\php\mysqli.php';
 <div class="info">
     <div class="filter">
         <a class="selection" href="../../index.php">Главная</a>
-        <a class="selection" href="">Детективы</a>
-        <a class="selection" href="">Фантастика</a>
-        <a class="selection" href="">Классика</a>
-        <a class="selection" href="">Романы</a>
-        <a class="selection" href="">Приключения</a>
-        <a class="selection" href="">Ужасы</a>
+        <a class="selection" href="../../new/genre/detective/detective.html">Детективы</a>
+        <a class="selection" href="../../new/genre/fantasy/fantasy.html">Фантастика</a>
+        <a class="selection" href="../../new/genre/classic/classic.html">Классика</a>
+        <a class="selection" href="../../new/genre/novel/novel.html">Романы</a>
+        <a class="selection" href="../../new/genre/adventures/adventures.html">Приключения</a>
+        <a class="selection" href="../../new/genre/horrors/horrors.html">Ужасы</a>
     </div>
     <div class="slider">
         <img src="images/b1.jpg">
@@ -87,8 +87,17 @@ while ($row = $res->fetch_assoc()) {
 }
 ?>
 </div>
-<form method="POST">
-    <input type = "text" name="id" value="<?php echo $book; ?>" hidden />
+<?php
+$b = mysqli_real_escape_string($mysqli , $_SESSION['id']);
+$user =  mysqli_real_escape_string($mysqli , $_SESSION['id']);
+$res = $mysqli->query("SELECT 'book_id', 'user_id' from basket");
+while ($row = $res->fetch_assoc()) {
+    $b = $row['id'] . ",";
+    $user = $row['id'] . ",";
+}
+?>
+<form method="GET">
+    <input type = "text" name="id" value="<?php echo $user; ?>" hidden>
     <button class="button-to-order" name="order" type="submit">Заказать</button>
 </form>
 

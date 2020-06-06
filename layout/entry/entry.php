@@ -35,12 +35,12 @@ include_once '..\..\php\mysqli.php';
 <div class="info">
     <div class="filter">
         <a class="selection" href="../../index.php">Главная</a>
-        <a class="selection" href="">Детективы</a>
-        <a class="selection" href="">Фантастика</a>
-        <a class="selection" href="">Классика</a>
-        <a class="selection" href="">Романы</a>
-        <a class="selection" href="">Приключения</a>
-        <a class="selection" href="">Ужасы</a>
+        <a class="selection" href="../../new/genre/detective/detective.html">Детективы</a>
+        <a class="selection" href="../../new/genre/fantasy/fantasy.html">Фантастика</a>
+        <a class="selection" href="../../new/genre/classic/classic.html">Классика</a>
+        <a class="selection" href="../../new/genre/novel/novel.html">Романы</a>
+        <a class="selection" href="../../new/genre/adventures/adventures.html">Приключения</a>
+        <a class="selection" href="../../new/genre/horrors/horrors.html">Ужасы</a>
     </div>
     <div class="slider">
         <img src="images/b1.jpg">
@@ -60,7 +60,7 @@ include_once '..\..\php\mysqli.php';
 </div>
 <?php if (isset($_SESSION['name'])) { ?>
   <form class="entry" method="post">
-    <h3>Вы уже авторизованны как <?php echo $_SESSION['name']; ?></h3>
+    <h3>Вы уже авторизованы как <?php echo $_SESSION['name']; ?></h3>
     <button class="entry-button" name="login-out" type="submit">Выйти</button>
   </form>
 <?php } else { ?>

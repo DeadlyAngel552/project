@@ -10,7 +10,6 @@ include_once 'php\mysqli.php';
 </head>
 <body>
   <header>
-      <a class="link" href="admin-panel/applications.php">Администратор</a>
       <a class="link" href="layout/company/company.php">О компании</a>
       <a class="link" href="layout/pay/pay.php">Оплата</a>
       <a class="link" href="layout/action/action.php">Акции и подарки</a>
@@ -22,12 +21,12 @@ include_once 'php\mysqli.php';
 <div class="info">
     <div class="filter">
         <a class="selection" href="index.php">Главная</a>
-        <a class="selection" href="">Детективы</a>
-        <a class="selection" href="">Фантастика</a>
-        <a class="selection" href="">Классика</a>
-        <a class="selection" href="">Романы</a>
-        <a class="selection" href="">Приключения</a>
-        <a class="selection" href="">Ужасы</a>
+        <a class="selection" href="new/genre/detective/detective.html">Детективы</a>
+        <a class="selection" href="new/genre/fantasy/fantasy.html">Фантастика</a>
+        <a class="selection" href="new/genre/classic/classic.html">Классика</a>
+        <a class="selection" href="new/genre/novel/novel.html">Романы</a>
+        <a class="selection" href="new/genre/adventures/adventures.html">Приключения</a>
+        <a class="selection" href="new/genre/horrors/horrors.html">Ужасы</a>
     </div>
     <div class="slider">
     <img src="images/b1.jpg">
@@ -46,11 +45,7 @@ include_once 'php\mysqli.php';
         if (isset($_GET['book'])) {
             $book = mysqli_real_escape_string($mysqli , $_GET['id']);
             $user_id =  mysqli_real_escape_string($mysqli , $_SESSION['id']);
-
-
             $mysqli->query("INSERT INTO `basket`(`book_id`, `user_id`, `count`) VALUES ('$book', '$user_id', 0)");
-
-
             ?> <h3>Добавлено в корзину</h3> <?php
           
         }
@@ -63,14 +58,17 @@ include_once 'php\mysqli.php';
 <div class="blocks">
 
   <?php
-    $res = $mysqli->query("SELECT  book.id,`title`, `price`, `img`, author.name
-                    FROM book INNER JOIN author ON book.author_id = author.id");
+    $res = $mysqli->query("SELECT  book.id,title, genre, price, img, author.name
+FROM book 
+INNER JOIN genre ON book.genre_id = genre.id
+INNER JOIN author ON book.author_id = author.id");
     while ($row = $res->fetch_assoc()) {
         ?>
         <div class="block">
             <img class="book-image" src="<?php echo $row["img"]; ?>">
             <h3 class="style"><?php echo $row["title"]; ?></h3>
             <p class="style">Автор: <?php echo $row["name"]; ?></p>
+            <p class="style">Жанр: <?php echo $row["genre"]; ?></p>
             <p class="style">Цена: <?php echo $row["price"]; ?>руб.</p>
             <?php   if ($_SESSION['id'] != "") { ?>
             <form method="GET">

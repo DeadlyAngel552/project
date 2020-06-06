@@ -1,5 +1,5 @@
 <?php
-include_once '..\php\mysqli.php';
+include_once 'C:\OSPanel\domains\project\php\mysqli.php';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -29,40 +29,34 @@ include_once '..\php\mysqli.php';
     <table class="table table-inverse">
         <thead>
         <tr>
-            <th>#</th>
-            <th>Дата</th>
-            <th>Пользователь</th>
-            <th>Адрес</th>
-            <th>Контакты</th>
-            <th>Сумма</th>
+            <th>id</th>
+            <th>book_id</th>
+            <th>user_id</th>
+            <th>Дата создания</th>
+            <th>Статус</th>
 
         </tr>
         </thead>
         <tbody>
+        <?php
+        $res = $mysqli->query("SELECT * FROM `offers`");
+        while ($row = $res->fetch_assoc()) {
+        ?>
         <tr>
-            <th scope="row">1</th>
-            <td>04.06.2020</td>
-            <td>Лилит</td>
-            <td>г. Белебей</td>
-            <td>deadly.angel502@gmail.com</td>
-            <td>300 руб.</td>
+
+            <th scope="row"><?php echo $row["id"]; ?></th>
+            <td><?php echo $row["book_id"]; ?></td>
+            <td><?php echo $row["user_id"]; ?></td>
+            <td><?php echo $row["create_at"]; ?></td>
+            <td>
+                <?php if ($row["status"]) { ?>
+                    <span>Ожидание</span>
+                <?php } ?>
+            </td>
+
+
         </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+        <?php }  ?>
         </tbody>
     </table>
 </div>
