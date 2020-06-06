@@ -38,14 +38,13 @@ include_once '..\php\mysqli.php';
         </thead>
         <tbody>
         <?php
-        $res = $mysqli->query("SELECT * FROM `offers`");
+        $res = $mysqli->query("SELECT `offers`.`id`, `title`, `name`, `create_at`, `status`  FROM `offers` INNER JOIN `book` ON `offers`.`book_id` = `book`.`id` INNER JOIN `users` ON `users`.`id` = `offers`.`user_id`");
         while ($row = $res->fetch_assoc()) {
         ?>
         <tr>
-
             <th scope="row"><?php echo $row["id"]; ?></th>
-            <td><?php echo $row["book_id"]; ?></td>
-            <td><?php echo $row["user_id"]; ?></td>
+            <td><?php echo $row["title"]; ?></td>
+            <td><?php echo $row["name"]; ?></td>
             <td><?php echo $row["create_at"]; ?></td>
             <td>
                 <?php if ($row["status"] == "0") { ?>
@@ -57,8 +56,8 @@ include_once '..\php\mysqli.php';
                   ?><span>Отправлено</span><?php
                 }
                  ?>
+                
             </td>
-
 
         </tr>
         <?php }  ?>

@@ -345,14 +345,16 @@ a.book-image:hover:before {
 }
 .title{
     font-size: 130%;
-    color: black;
+    color: wheat;
     margin-left: 1%;
+    opacity: 0.6;
 }
 .text{
     font-size: 100%;
-    color: black;
+    color: wheat;
     margin-top: 0.2%;
     margin-left: 0.8%;
+    opacity: 0.6;
 }
 /*Кнопка наверх*/
 a.top-button{

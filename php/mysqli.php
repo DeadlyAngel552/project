@@ -4,7 +4,7 @@
 $local = "localhost";
 $user = "root";
 $password = "";
-$bd = "dikins";
+$bd = "dikins_1";
 
 
 $mysqli = mysqli_connect($local, $user, $password, $bd);
@@ -85,10 +85,11 @@ if (isset($_GET['order'])) {
         // code...
         $b = mysqli_real_escape_string($mysqli, $value);
 
-        // printf("INSERT INTO `offers`(`book_id`, `user_id`) VALUES ('$b', '$user_id')");
+        //printf("INSERT INTO `offers`(`book_id`, `user_id`) VALUES ('$b', '$user_id')");
         if ($mysqli->query("INSERT INTO `offers`(`book_id`, `user_id`) VALUES ('$b', '$user_id')") == TRUE)
         {
             $mysqli->query("DELETE FROM `basket` WHERE `user_id` = '$user_id'");
         }
     }
+    header("Location: http://dickens/layout/thank/thanks.php");
 }

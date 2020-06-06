@@ -58,8 +58,8 @@ include_once '..\..\php\mysqli.php';
     <p class="asorti"></p>
 </div>
 <div class="thank_you">
-    <p class="thank-text">Spasibo</p>
-    <button class="button-thank" type="submit">Ок</button>
+    <p class="thank-text">Спасибо за заказ</p>
+    <button class="button-thank" type="submit"><a class="link-thanks" href="../../index.php">Вернуться на главную</a></button>
 </div>
 
 <a href="#" title="Вернуться к началу" class="top-button">UP</a>
