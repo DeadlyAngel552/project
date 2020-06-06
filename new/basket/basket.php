@@ -65,18 +65,20 @@ include_once '..\..\php\mysqli.php';
 $book="";
 
 $user_id =  mysqli_real_escape_string($mysqli , $_SESSION['id']);
-$res = $mysqli->query("SELECT  basket.id,`title`, `price`, `img`, author.name
+$res = $mysqli->query("SELECT  basket.id, `book_id`, `title`, genre, `price`, `img`, author.name
 FROM book
+INNER JOIN genre ON book.genre_id = genre.id
 INNER JOIN author ON book.author_id = author.id
 INNER JOIN basket ON book.id = basket.book_id
 WHERE basket.user_id = '$user_id'");
 while ($row = $res->fetch_assoc()) {
-      $book .= $row['id'].",";
+      $book .= $row['book_id'].",";
     ?>
     <div class="block">
         <img class="book-image" src="<?php echo $row["img"]; ?>">
         <h3 class="style"><?php echo $row["title"]; ?></h3>
-        <p class="style">Автор: <?php echo $row["author.name"]; ?></p>
+        <p class="style">Автор: <?php echo $row["name"]; ?></p>
+        <p class="style">Жанр: <?php echo $row["genre"]; ?></p>
         <p class="style">Цена: <?php echo $row["price"]; ?>руб.</p>
         <form method="GET" action="basket.php">
             <input type = "text" name="id" value="<?php echo $row['id']; ?>" hidden />

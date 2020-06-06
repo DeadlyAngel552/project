@@ -86,9 +86,12 @@ if (isset($_GET['order'])) {
         $b = mysqli_real_escape_string($mysqli, $value);
 
         // printf("INSERT INTO `offers`(`book_id`, `user_id`) VALUES ('$b', '$user_id')");
-        if ($mysqli->query("INSERT INTO `offers`(`book_id`, `user_id`) VALUES ('$b', '$user_id')") == TRUE)
+
+        if ($mysqli->query("INSERT INTO `offers` (`book_id`, `user_id`) VALUES ('$b', '$user_id')") == true)
         {
             $mysqli->query("DELETE FROM `basket` WHERE `user_id` = '$user_id'");
         }
     }
+
+    header("Location: http://project/layout/thank/thanks.php");
 }

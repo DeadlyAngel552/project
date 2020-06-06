@@ -38,7 +38,7 @@ include_once '..\php\mysqli.php';
         </thead>
         <tbody>
         <?php
-        $res = $mysqli->query("SELECT * FROM `offers`");
+        $res = $mysqli->query("SELECT `id`, `title`, `name`, `create_at`, `status`  FROM `offers` INNER JOIN `book` ON `offers`.`book_id` = `book`.`id` INNER JOIN `users` ON `users`.`id` = `offers`.`user_id`");
         while ($row = $res->fetch_assoc()) {
         ?>
         <tr>
