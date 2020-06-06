@@ -114,6 +114,11 @@ header{
     margin-right: 3%;
     margin-left: 25%;
 }
+.link-thanks{
+    text-decoration: none;
+    color: black;
+    font-size: 100%;
+}
 /*Общий блок для фильтра, слайдера и поиска*/
 .info{
     width: 100%;
@@ -267,7 +272,7 @@ header{
     color: black;
 }
 .button-thank{
-    width: 10%;
+    width: 30%;
     height: 30px;
     font-size: 100%;
     color: black;

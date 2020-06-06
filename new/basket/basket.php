@@ -60,7 +60,7 @@ include_once '..\..\php\mysqli.php';
     <p class="asorti">В КОРЗИНЕ:</p>
 </div>
 
-<div class="blocks">
+<div class="blocks" >
 <?php
 $book="";
 
@@ -74,7 +74,7 @@ WHERE basket.user_id = '$user_id'");
 while ($row = $res->fetch_assoc()) {
       $book .= $row['book_id'].",";
     ?>
-    <div class="block">
+    <div class="block" >
         <img class="book-image" src="<?php echo $row["img"]; ?>">
         <h3 class="style"><?php echo $row["title"]; ?></h3>
         <p class="style">Автор: <?php echo $row["name"]; ?></p>

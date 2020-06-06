@@ -85,13 +85,27 @@ if (isset($_GET['order'])) {
         // code...
         $b = mysqli_real_escape_string($mysqli, $value);
 
-        // printf("INSERT INTO `offers`(`book_id`, `user_id`) VALUES ('$b', '$user_id')");
-
-        if ($mysqli->query("INSERT INTO `offers` (`book_id`, `user_id`) VALUES ('$b', '$user_id')") == true)
+        //printf("INSERT INTO `offers`(`book_id`, `user_id`) VALUES ('$b', '$user_id')");
+        if ($mysqli->query("INSERT INTO `offers`(`book_id`, `user_id`) VALUES ('$b', '$user_id')") == TRUE)
         {
             $mysqli->query("DELETE FROM `basket` WHERE `user_id` = '$user_id'");
         }
     }
 
     header("Location: http://project/layout/thank/thanks.php");
+}
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+if (isset($_POST['send'])) {
+    $book = mysqli_real_escape_string($mysqli, $_POST['id']);
+
+    $mysqli->query("UPDATE `offers` SET `status`= 1 WHERE `id` = '$book'");
+}
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+if (isset($_POST['cancel'])) {
+    $book = mysqli_real_escape_string($mysqli, $_POST['id']);
+    $mysqli->query("DELETE FROM `offers` WHERE `id` = '$book'");
 }
