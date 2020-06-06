@@ -1,5 +1,5 @@
 <?php
-include_once 'C:\OSPanel\domains\project\php\mysqli.php';
+include_once '..\php\mysqli.php';
 ?>
     <!DOCTYPE html>
     <html lang="ru">

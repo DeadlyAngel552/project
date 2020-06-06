@@ -1,5 +1,5 @@
 <?php
-include_once 'C:\OSPanel\domains\project\php\mysqli.php';
+include_once '..\php\mysqli.php';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -29,12 +29,11 @@ include_once 'C:\OSPanel\domains\project\php\mysqli.php';
     <table class="table table-inverse">
         <thead>
         <tr>
-            <th>id</th>
-            <th>book_id</th>
-            <th>user_id</th>
+            <th>Номер заявки</th>
+            <th>Книга</th>
+            <th>Пользователь</th>
             <th>Дата создания</th>
             <th>Статус</th>
-
         </tr>
         </thead>
         <tbody>
@@ -49,9 +48,15 @@ include_once 'C:\OSPanel\domains\project\php\mysqli.php';
             <td><?php echo $row["user_id"]; ?></td>
             <td><?php echo $row["create_at"]; ?></td>
             <td>
-                <?php if ($row["status"]) { ?>
+                <?php if ($row["status"] == "0") { ?>
                     <span>Ожидание</span>
-                <?php } ?>
+                    <button class="button-add" type="submit">Отправить</button>
+                <?php
+                }
+                else {
+                  ?><span>Отправлено</span><?php
+                }
+                 ?>
             </td>
 
 

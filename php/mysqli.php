@@ -71,27 +71,24 @@ if (isset($_POST['registration'])) {
         echo "-";
     }
 }
-
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 if (isset($_GET['order'])) {
-    $book = mysqli_real_escape_string($mysqli, $_GET['id']);
-    $user_id = mysqli_real_escape_string($mysqli, $_GET['user_id']);
+    $book = $_GET['id'];
+    $user_id = mysqli_real_escape_string($mysqli, $_SESSION['id']);
     $row = explode(',', $book);
 
     // echo "<pre>";
-    // print_r($row);
+    // print_r($book[0]);
     // echo "</pre>";
 
     foreach ($row as $key => $value) {
         // code...
         $b = mysqli_real_escape_string($mysqli, $value);
-        $user = mysqli_real_escape_string($mysqli, $value);
-        $create = date("Y-m-d");
-        $status = mysqli_real_escape_string($mysqli, $value);
 
-        if ($mysqli->query("INSERT INTO `offers`(`book_id`, `user_id`, `create_at`, `status`) VALUES ('$b', '$user', '$create','$status')") == TRUE)
+        // printf("INSERT INTO `offers`(`book_id`, `user_id`) VALUES ('$b', '$user_id')");
+        if ($mysqli->query("INSERT INTO `offers`(`book_id`, `user_id`) VALUES ('$b', '$user_id')") == TRUE)
         {
-            printf("work");
+            $mysqli->query("DELETE FROM `basket` WHERE `user_id` = '$user_id'");
         }
-
     }
 }

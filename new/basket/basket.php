@@ -97,7 +97,7 @@ while ($row = $res->fetch_assoc()) {
 }
 ?>
 <form method="GET">
-    <input type = "text" name="id" value="<?php echo $user; ?>" hidden>
+    <input type = "text" name="id" value="<?php echo $book; ?>" hidden>
     <button class="button-to-order" name="order" type="submit">Заказать</button>
 </form>
 

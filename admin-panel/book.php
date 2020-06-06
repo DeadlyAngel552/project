@@ -37,7 +37,7 @@ if ($_SESSION[""])
             <th>Жанр</th>
             <th>Цена</th>
             <th>Изображение</th>
-
+            <th>Редактировать</th>
         </tr>
         </thead>
         <tbody>
@@ -54,9 +54,17 @@ if ($_SESSION[""])
             <td>Роман</td>
             <td>Цена: <?php echo $row["price"]; ?>руб.</td>
             <td>
-              <?php if ($row["price"]) { ?>
+              <?php if (!$row["img"]) { ?>
               <button class="button-add" type="submit">Добавить...</button>
-              <?php } ?>
+              <?php
+              }
+              else {
+                ?><span>Изображение уже добавлено</span><?php
+              }
+              ?>
+            </td>
+            <td>
+              <button class="button-add btn-success" style="width: auto" type="submit">Редактировать</button>
             </td>
         </tr>
         <?php }  ?>
